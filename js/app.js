@@ -96,17 +96,20 @@ Player.prototype.reset = function() {
 
 // The player update method that is responsible for detecting collisions
 // and determining if the player has reached the end
-Player.prototype.update = function() {
-    // Loop over the enemies and see if we have any collisions
-    if (this.y === -15) {
-        this.reset();
-    }
-    for (const enemy of allEnemies) {
-        if ((this.y === enemy.y) &&
-            (Math.abs(enemy.x - this.x) < 70)) {
+Player.prototype.update = async function() {
+//    var endGame = setTimeout(function() {
+        // Loop over the enemies and see if we have any collisions
+        if (this.y === -15) {
+            alert("You Win! :D");
             this.reset();
         }
-    }
+        for (const enemy of allEnemies) {
+            if ((this.y === enemy.y) && (Math.abs(enemy.x - this.x) < 70)) {
+                alert("You Lose :(");
+                this.reset();
+                break;
+            }
+        }
 };
 
 // Now instantiate your objects.

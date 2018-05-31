@@ -11,7 +11,7 @@ to play the version on the master branch.
 ## Movement
 Player movement is handled in the same way as most normal games using the direction keys.
 
-<img src="images/Arrow_keys.jpg" title="Image credit: Lars H. Rohwedder (User:RokerHRO) - selfmade picture, Public Domain, https://commons.wikimedia.org/w/index.php?curid=2227002" style="width: 200px;"/>
+<img src="images/Arrow_keys.jpg" title="Image credit: Lars H. Rohwedder (User:RokerHRO) - selfmade picture, Public Domain, https://commons.wikimedia.org/w/index.php?curid=2227002" style="width: 50%; height:50%"/>
 
 where:
 - **Up** : Moves player up
@@ -32,7 +32,7 @@ This must be done while avoiding the enemy characters:
 Following are a list of features that I would like to implement:
 
 **Score counter**
-* [ ] Count of successes/failures
+* [x] Count of successes/failures
 * [ ] Require obtaining a special object before completion
 * [ ] Avatar selection
 

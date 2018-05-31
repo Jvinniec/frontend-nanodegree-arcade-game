@@ -31,10 +31,12 @@ This must be done while avoiding the enemy characters:
 # TODO
 Following are a list of features that I would like to implement:
 
-**Score counter**
 * [x] Count of successes/failures
 * [ ] Require obtaining a special object before completion
 * [ ] Avatar selection
+* [ ] Difficulty mode (changes speed of enemies and adds one more)
+* [ ] Show player on the water when they win
+* [x] Show player on enemy when they walk into on
 
 
 # The Original TODO List

@@ -62,6 +62,8 @@ Enemy.prototype.reset = function() {
 // a handleInput() method.
 var Player = function() {
     this.sprite = 'images/char-boy.png';
+    this.wins = 0;
+    this.loses = 0;
     this.reset();
 };
 Player.prototype = Object.create(Sprite.prototype);
@@ -89,8 +91,12 @@ Player.prototype.handleInput = function(key) {
 };
 
 Player.prototype.reset = function() {
+    // Update position
     this.x = 201;
     this.y = 400;
+
+    // Update wins/loses
+    document.getElementById("score").innerHTML = `Wins: ${this.wins}, Loses: ${this.loses}`;
 }
 
 
@@ -101,11 +107,13 @@ Player.prototype.update = async function() {
         // Loop over the enemies and see if we have any collisions
         if (this.y === -15) {
             alert("You Win! :D");
+            this.wins += 1;
             this.reset();
         }
         for (const enemy of allEnemies) {
             if ((this.y === enemy.y) && (Math.abs(enemy.x - this.x) < 70)) {
                 alert("You Lose :(");
+                this.loses +=1;
                 this.reset();
                 break;
             }

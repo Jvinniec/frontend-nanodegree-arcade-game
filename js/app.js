@@ -143,11 +143,12 @@ class Player extends Sprite {
 var enemy1 = new Enemy(2);
 var enemy2 = new Enemy(3);
 var enemy3 = new Enemy(4);
-//var enemy4 = new Enemy(1);
+var enemy4 = new Enemy(1);
 var allEnemies = [
     enemy1, 
     enemy2,
-    enemy3
+    enemy3,
+    enemy4
 ];
 
 // Place the player object in a variable called player

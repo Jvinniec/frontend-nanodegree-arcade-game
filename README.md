@@ -11,7 +11,7 @@ to play the version on the master branch.
 ## Movement
 Player movement is handled in the same way as most normal games using the direction keys.
 
-<img src="images/Arrow_keys.jpg" title="Image credit: Lars H. Rohwedder (User:RokerHRO) - selfmade picture, Public Domain, https://commons.wikimedia.org/w/index.php?curid=2227002" width="50%">
+<img src="images/Arrow_keys.jpg" title="Image credit: Lars H. Rohwedder (User:RokerHRO) - selfmade picture, Public Domain, https://commons.wikimedia.org/w/index.php?curid=2227002" width="200">
 
 where:
 - **Up** : Moves player up

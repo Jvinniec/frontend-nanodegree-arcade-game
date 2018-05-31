@@ -4,7 +4,9 @@ frontend-nanodegree-arcade-game
 
 # Getting Started
 ## Loading the Game
-To load the game, simply open the `index.html` file in your webbrowser.
+To load the game, simply open the `index.html` file in your webbrowser. Or, you
+can also go [here](https://jvinniec.github.io/frontend-nanodegree-arcade-game/)
+to play the version on the master branch.
 
 ## Movement
 Player movement is handled in the same way as most normal games using the direction keys.
@@ -24,8 +26,7 @@ The goal of the game is to move the player from the starting position all the wa
 
 This must be done while avoiding the enemy characters:
 
-<img src="images/enemy-bug.png" title="Enemy bug (Avoid these at all cost!)" style="width:50px;">
-
+<img src="images/enemy-bug.png" title="Enemy bug (avoid these at all cost!)" style="width:50px;">
 
 # TODO
 Following are a list of features that I would like to implement:

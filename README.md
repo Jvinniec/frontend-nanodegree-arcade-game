@@ -35,7 +35,7 @@ Following are a list of features that I would like to implement:
 * [ ] Require obtaining a special object before completion
 * [ ] Avatar selection
 * [ ] Difficulty mode (changes speed of enemies and adds one more)
-* [ ] Show player on the water when they win
+* [x] Show player on the water when they win
 * [x] Show player on enemy when they walk into on
 
 

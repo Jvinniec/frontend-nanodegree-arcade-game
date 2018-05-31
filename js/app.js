@@ -1,5 +1,11 @@
-var ystep  = 83;
-var xstep = 100;
+
+// Define the step sizes in x & y
+var ystep = 83;
+var xstep = 101;
+
+// Store total wins and losses in a couple global variables
+wins  = 0;
+loses = 0;
 
 // Base class for all objects that need a sprite
 class Sprite {
@@ -7,6 +13,7 @@ class Sprite {
         this.sprite = sprite;
         this.x = x;
         this.y = y;
+        this.isFixed = false;
     }
 
     update() {
@@ -23,7 +30,7 @@ class Sprite {
 // Enemies our player must avoid
 class Enemy extends Sprite {
     constructor(y) {
-        super('images/enemy-bug.png', -101, 400-y*ystep);
+        super('images/enemy-bug.png', -101, 375-y*ystep);
 
         // The image/sprite for our enemies
         this.velocity = 50 + 100*Math.random();
@@ -33,11 +40,14 @@ class Enemy extends Sprite {
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-        // Multiply any movement by the dt parameter which will
-        // ensure the game runs at the same speed for all computers.
-        this.x = this.x + this.velocity * dt;
-        if ((this.x > 501)||(this.x<-101)) {
-            this.reset();
+        // Do nothing if we're fixed
+        if (!this.isFixed) {
+            // Multiply any movement by the dt parameter which will
+            // ensure the game runs at the same speed for all computers.
+            this.x = this.x + this.velocity * dt;
+            if ((this.x > 501)||(this.x < -101)) {
+                this.reset();
+            }
         }
     }
 
@@ -57,51 +67,60 @@ class Enemy extends Sprite {
 
 // Player class
 class Player extends Sprite {
-    constructor() {
-        super('images/char-boy.png', 0, 0);
-        this.wins = 0;
-        this.loses = 0;
+    constructor(sprite, x=null, y=null) {
+        super(sprite, 0, 0);
+
+        // Keep track of wins & losses
         this.reset();
+        if (x !== null) {
+            this.x = x;
+        }
+        if (y !== null) {
+            this.y = y
+        }
     }
 
     // Move the player around
     handleInput(key) {
-        // Move left
-        if ((key === 'left') && (this.x > 1)) {
-            this.x -= xstep;
-        }
-        // Move right
-        else if ((key === 'right') && (this.x < 400)) {
-            this.x += xstep;
-        } 
-        // Move up
-        else if ((key === 'up') && (this.y > 0)) {
-            this.y -= ystep;
-        } 
-        // Move down
-        else if ((key === 'down') && (this.y < 400)) {
-            this.y += ystep;
+        // Make sure the avatar can move
+        if (!this.isFixed) {
+            // Move left
+            if ((key === 'left') && (this.x > 1)) {
+                this.x -= xstep;
+            }
+            // Move right
+            else if ((key === 'right') && (this.x < 375)) {
+                this.x += xstep;
+            }
+            // Move up
+            else if ((key === 'up') && (this.y > 0)) {
+                this.y -= ystep;
+            }
+            // Move down
+            else if ((key === 'down') && (this.y < 375)) {
+                this.y += ystep;
+            }
         }
     }
 
     // Resets player when they win or lose
     reset() {
         // Update position
-        this.x = 201;
-        this.y = 400;
+        this.x = 2*xstep;
+        this.y = 375;
     
         // Update wins/loses
-        document.getElementById("score").innerHTML = `Wins: ${this.wins}, Loses: ${this.loses}`;
+        document.getElementById("score").innerHTML = `Wins: ${wins}, Loses: ${loses}`;
     }
 
     // The player update method that is responsible for detecting collisions
     // and determining if the player has reached the end
-    async update() {
+    update() {
         // Loop over the enemies and see if we have any collisions
-        if (this.y === -15) {
+        if (this.y === -40) {
             setTimeout(() => {
                 alert("You Win! :D");
-                this.wins += 1;
+                wins += 1;
                 this.reset();
             }, 1);
         }
@@ -109,7 +128,7 @@ class Player extends Sprite {
             if ((this.y === enemy.y) && (Math.abs(enemy.x - this.x) < 70)) {
                 setTimeout(() => {
                     alert("You Lose :(");
-                    this.loses +=1;
+                    loses +=1;
                     this.reset();
                 }, 1);
                 break;
@@ -132,7 +151,7 @@ var allEnemies = [
 ];
 
 // Place the player object in a variable called player
-var player = new Player();
+var player = new Player('images/char-boy.png');
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

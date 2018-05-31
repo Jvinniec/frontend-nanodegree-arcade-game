@@ -11,7 +11,7 @@ to play the version on the master branch.
 ## Movement
 Player movement is handled in the same way as most normal games using the direction keys.
 
-<img src="images/Arrow_keys.jpg" title="Image credit: Lars H. Rohwedder (User:RokerHRO) - selfmade picture, Public Domain, https://commons.wikimedia.org/w/index.php?curid=2227002" style="width: 50%; height:50%"/>
+<img src="images/Arrow_keys.jpg" title="Image credit: Lars H. Rohwedder (User:RokerHRO) - selfmade picture, Public Domain, https://commons.wikimedia.org/w/index.php?curid=2227002" width="50%">
 
 where:
 - **Up** : Moves player up
@@ -22,11 +22,11 @@ where:
 ## Game Play
 The goal of the game is to move the player from the starting position all the way to the water (blue squares) on the other side:
 
-<img src="images/water-block.png" title="Water block (this is your goal)" style="width:50px;">
+<img src="images/water-block.png" title="Water block (this is your goal)" width="50px">
 
 This must be done while avoiding the enemy characters:
 
-<img src="images/enemy-bug.png" title="Enemy bug (avoid these at all cost!)" style="width:50px;">
+<img src="images/enemy-bug.png" title="Enemy bug (avoid these at all cost!)" width="50px">
 
 # TODO
 Following are a list of features that I would like to implement:

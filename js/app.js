@@ -50,8 +50,11 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.reset = function() {
     //this.x = -101;
     this.velocity = 100 + 200*Math.random();
-    if (this.x > 400) {
+    if (this.x > 500) {
+        this.x = 500;
         this.velocity *= -1;
+    } else if (this.x < -101) {
+        this.x = -101;
     }
 }
 
